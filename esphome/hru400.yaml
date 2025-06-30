@@ -68,7 +68,8 @@ packages:
       # New board settings:
       #esphome/boards/uart/m5stack/U034/m5stack-C124-atom-s3-lite.yaml,
       # Legacy board settings:
-      esphome/boards/board-esp32-atom-lite.yaml,
+      esphome/boards/board-esp32.yaml,
+      #esphome/boards/board-esp32-atom-lite.yaml,
       #esphome/boards/board-esp32-atom-s3-lite.yaml,
       # Step 4: Configure the general stuff:
       esphome/base/base.yaml,
