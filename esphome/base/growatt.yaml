@@ -1,0 +1,100 @@
+# Growatt START
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: growatt
+    name: "PV Status #"
+    address: 3000
+    register_type: "read"
+#    internal: true
+    accuracy_decimals: 0
+    id: status
+  - platform: modbus_controller
+    modbus_controller_id: growatt
+    name: "PV Actual Power"
+    id: growatt_pac
+    register_type: read
+    address: 3023 # 0x000E
+    value_type: U_DWORD
+    unit_of_measurement: "W"
+    state_class: total_increasing
+    icon: mdi:solar-power
+    accuracy_decimals: 1
+    filters:
+    - multiply: 0.1
+    - clamp:
+        min_value: 0
+        max_value: 10000
+        ignore_out_of_range: true
+  - platform: modbus_controller
+    modbus_controller_id: growatt
+    name: "PV Actual Power String 1"
+    id: growatt_ps1
+    register_type: read
+    address: 3005 # 0x000E
+    value_type: U_DWORD
+    unit_of_measurement: "W"
+    accuracy_decimals: 1
+    filters:
+    - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: growatt
+    name: "PV Actual Power String 2"
+    id: growatt_ps2
+    register_type: read
+    address: 3009 # 0x000E
+    value_type: U_DWORD
+    unit_of_measurement: "W"
+    accuracy_decimals: 1
+    filters:
+    - multiply: 0.1
+  # - platform: modbus_controller
+  #   modbus_controller_id: growatt
+  #   name: "PV Frequentie"
+  #   id: growatt_freq
+  #   register_type: read
+  #   address: 3025 # 0x000E
+  #   value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: growatt
+    name: "PV Temperature"
+    id: growatt_temp
+    register_type: read
+    address: 3093 # 0x000E
+    value_type: U_WORD
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+    - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: growatt
+    name: "PV Energy Today"
+    id: growatt_etd
+    register_type: read
+    address: 3049 # 0x000E
+    value_type: U_DWORD
+    unit_of_measurement: "kWh"
+    accuracy_decimals: 1
+    filters:
+    - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: growatt
+    name: "PV Energy Total"
+    id: growatt_ett
+    register_type: read
+    address: 3051 # 0x000E
+    value_type: U_DWORD
+    unit_of_measurement: "kWh"
+    state_class: total_increasing
+    device_class: "energy"
+    accuracy_decimals: 1
+    filters:
+    - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: growatt
+    name: "PV Derating Mode"
+    id: growatt_dm
+    register_type: read
+    address: 3086 # 0x000E
+    value_type: U_WORD
+
+# Growatt END
