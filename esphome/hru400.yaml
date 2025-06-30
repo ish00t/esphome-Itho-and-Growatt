@@ -56,7 +56,7 @@ web_server:
 
 packages:
   remote_package:
-    url: https://github.com/william-sy/esphome-Itho-Daalderop-HRU400
+    url: https://github.com/ish00t/esphome-Itho-and-Growatt
     ref: main
     refresh: 0s
     files: [
