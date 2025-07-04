@@ -2,24 +2,25 @@
 # Modbus Settings
 ###
 modbus:
-  id: modbuswtw
+  id: modbus01
   uart_id: uart_modbus
   #send_wait_time: 2000ms
 
 modbus_controller:
   - id: wtw
     address:          0x48 # Resolves to 72
-    modbus_id:        modbuswtw
+    modbus_id:        modbus01
     setup_priority:   -10
     update_interval:  15s
     command_throttle: 200ms
     offline_skip_updates: 100
   - id: growatt
-    address: 01 # the Modbus device addr, was 0x1
-    modbus_id: modbuswtw
-    update_interval: 10s
-    setup_priority: -10
+    address:          01 # the Modbus device addr, was 0x1
+    modbus_id:        modbus01
+    update_interval:  10s
+    setup_priority:   -10
     command_throttle: 800ms
+
 
 
 substitutions:
