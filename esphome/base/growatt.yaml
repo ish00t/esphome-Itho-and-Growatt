@@ -112,4 +112,14 @@ text_sensor:
         default: return std::string("Unknown");
       }
     icon: mdi:information
+# Growatt r/w setting writers
+switch:
+  - platform: modbus_controller
+    modbus_controller_id: growatt
+    name: "Growatt On/Off"
+    register_type: holding
+    address: 0
+    bitmask: 1 # Assuming 1 is ON, 0 is OFF
+    entity_category: config
+    icon: mdi:toggle-switch
 # Growatt END
