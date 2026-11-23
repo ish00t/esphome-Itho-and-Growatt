@@ -14,6 +14,27 @@ modbus_controller:
     update_interval:  15s
     command_throttle: 200ms
     offline_skip_updates: 100
+    
+  - id:                   wtw
+    address:              0x48 # Resolves to 72
+    modbus_id:            modbus01
+    setup_priority:       -10
+    #update_interval:      15s
+    #offline_skip_updates: 100
+  # Second controller on the same device for the slow advanced sensors (replaces skip_updates)
+  - id:                   wtw_slow
+    address:              0x48 # Resolves to 72
+    modbus_id:            modbus01
+    setup_priority:       -10
+    update_interval:      300s
+  # Third controller for the error counters (was skip_updates: errors, 10 x 60 s)
+  - id:                   wtw_errors
+    address:              0x48 # Resolves to 72
+    modbus_id:            modbus01
+    setup_priority:       -10
+    update_interval:      600
+
+  
   - id: growatt
     address:          01 # the Modbus device addr, was 0x1
     modbus_id:        modbus01
