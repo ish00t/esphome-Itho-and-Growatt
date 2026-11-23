@@ -42,18 +42,14 @@ modbus_controller:
     setup_priority:   -10
     command_throttle: 800ms
 
-
-
 ###
 # Substitutions
 ###
 substitutions:
   modbus_id:              wtw
+  modbus_id_slow:         wtw_slow
+  modbus_id_errors:       wtw_errors
   alert_icon:             mdi:alert-circle
-  skip_updates:
-    base:                 5
-    errors:               10
-    advanced:             100
   max:
     error_number:         5
     flap:                 550
@@ -66,3 +62,8 @@ substitutions:
     speed_5:              300
     speed_6:              350
     speed_7:              399
+
+button:
+  - platform: restart
+    name: "Reset the ESP"
+
