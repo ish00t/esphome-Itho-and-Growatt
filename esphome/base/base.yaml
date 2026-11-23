@@ -32,7 +32,7 @@ modbus_controller:
     address:              0x48 # Resolves to 72
     modbus_id:            modbus01
     setup_priority:       -10
-    update_interval:      600
+    update_interval:      600s
 
   
   - id: growatt
